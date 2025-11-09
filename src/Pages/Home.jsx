@@ -2,8 +2,11 @@ import React, { useEffect } from 'react';
 import banner from "../assets/banner.png"
 import 'aos/dist/aos.css'; // Import AOS CSS
 import Aos from 'aos';
+import { useLoaderData } from 'react-router';
 
 const Home = () => {
+     const data = useLoaderData()
+    console.log(data)
 
      useEffect(() => {
         Aos.init({
@@ -68,7 +71,7 @@ const Home = () => {
         <div className="absolute right-[-10px] bottom-[-25px] bg-white/70 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-xs">
           
           <p className="text-blue-900 text-sm mt-2 font-semibold p-2">
-           Trusted by over 200  students worldwide.
+           Trusted by over 200+  students worldwide.
           </p>
         </div>
       </div>
