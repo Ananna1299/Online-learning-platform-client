@@ -15,7 +15,7 @@ const Footer = () => {
 
 
     return (
-        <footer className="footer sm:footer-horizontal  bg-linear-to-r from-purple-500 to-[#FF828B] text-neutral-content p-10">
+        <footer className="footer sm:footer-horizontal  bg-blue-900  text-neutral-content p-10">
   <aside>
     <div data-aos="flip-left" data-aos-delay="100" data-aos-anchor=".example-selector">
         

@@ -5,7 +5,7 @@ import { Link, NavLink } from 'react-router';
 const Navbar = () => {
     return (
         
-<div className="navbar px-8 bg-base-100 shadow-sm">
+<div className="navbar px-8 bg-base-200 shadow-sm">
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -15,19 +15,19 @@ const Navbar = () => {
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
         <li>
-            <NavLink to="/">Home</NavLink>
+            <NavLink to="/" className="text-blue-900 font-semibold">Home</NavLink>
         </li>
         <li>
-          <NavLink>All Courses</NavLink>
+          <NavLink to="/all-courses" className="text-blue-900 font-semibold">All Courses</NavLink>
         </li>
         <li>
-            <NavLink>Dashboard</NavLink>
+            <NavLink to="/dashboard" className="text-blue-900 font-semibold">Dashboard</NavLink>
         </li>
       </ul>
     </div>
     <div className='flex items-center'>
         
-        <a className="btn btn-ghost text-2xl bg-gradient-to-r from-purple-500 to-[#E77577] bg-clip-text text-transparent">eLearning</a>
+        <a className="btn btn-ghost text-2xl bg-gradient-to-r from-blue-900 to-blue-400 bg-clip-text text-transparent">eLearning</a>
     </div>
   </div>
   
@@ -35,16 +35,16 @@ const Navbar = () => {
     <div className='hidden lg:flex'>
         <ul className="menu menu-horizontal px-1">
       <li>
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/"  className="text-blue-900 font-semibold">Home</NavLink>
       </li>
       <li>
-        <NavLink>All Courses</NavLink>
+        <NavLink to="/all-courses" className="text-blue-900 font-semibold">All Courses</NavLink>
       </li>
-      <li><NavLink>Dashboard</NavLink></li>
+      <li><NavLink  to="/dashboard"  className="text-blue-900 font-semibold">Dashboard</NavLink></li>
     </ul>
     </div>
 
-    <Link className="btn bg-linear-to-r from-purple-500 to-[#FF828B] rounded-full text-white">Login</Link>
+    <Link className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full">Login</Link>
   </div>
 </div> 
     
