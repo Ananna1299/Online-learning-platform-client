@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const CourseCard = ({course}) => {
-    console.log(course)
+    //console.log(course)
     const {_id,title,image,price,duration,category } = course;
     return (
       <div className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
