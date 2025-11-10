@@ -1,10 +1,10 @@
 import React, { use, useEffect, useState } from 'react';
-import { Link, useNavigate, useParams } from 'react-router';
+import { Link, useParams } from 'react-router';
 import { AuthContext } from '../Context/AuthContext';
 import Footer from '../Components/Footer';
 
 const CourseDetailsLayout = () => {
-     const navigate = useNavigate();
+     //const navigate = useNavigate();
      const { id } = useParams();
      const [course, setCourse] = useState({});
      const [loading, setLoading] = useState(true);
