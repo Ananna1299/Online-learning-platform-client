@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 const Navbar = () => {
 
    const {user,logOut}=use(AuthContext)
+   //console.log(user)
 
   const handleLogout=()=>{
     logOut()
@@ -56,6 +57,17 @@ const Navbar = () => {
       <li><NavLink  to="/dashboard"  className="text-blue-900 font-semibold">Dashboard</NavLink></li>
     </ul>
     </div>
+    {
+      user&&<div className=' mr-3'>
+        <img
+                src={user?.photoURL || ""}
+                title={user.displayName}
+                alt="User Photo"
+                className="w-10 h-10 rounded-full border-2 border-purple-500 cursor-pointer"
+              />
+
+      </div>
+    }
     {
       user? 
       <button onClick={handleLogout} className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full">

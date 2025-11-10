@@ -7,7 +7,7 @@ import { AuthContext } from "../../Context/AuthContext";
 
 const Register = () => {
 
-   const { createUser,setUser,googleSignIn} = use(AuthContext);
+   const { createUser,googleSignIn,updateUser,setUser} = use(AuthContext);
    const [showpassword,setShowPassword]=useState(false)
    //console.log(user)
    const navigate=useNavigate()
@@ -47,14 +47,25 @@ const Register = () => {
 
     }
       
-    //console.log(email,password,photo)
+    //console.log(name,email,password,photo)
     createUser(email,password)
     .then(result=>{
       const userInfo=result.user;
      // console.log(userInfo)
-     e.target.reset()
-    navigate(`${location.state? location.state: "/"}`)
+      updateUser({displayName:name,photoURL:photo})
+      .then(()=>{
+        setUser({...userInfo,displayName:name,photoURL:photo})
+         e.target.reset()
+         navigate("/")
          
+    }
+     )
+      .catch((error) => {
+            //console.log(error);
+            setUser(userInfo);
+          });
+
+
     })
     .catch(error=>toast(error))
    
