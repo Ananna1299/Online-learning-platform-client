@@ -64,7 +64,7 @@ const AllCourses = () => {
      </form>
             </div>
 
-      {loading? <span>Loading.......</span>:
+      {loading? <span className="loading loading-dots loading-xl"></span>:
       <div className="grid grid-cols-1 md:grid-cols-3  gap-10 pb-10 mb-10">
         {courses.map((course) => (
           <CourseCard key={course._id} course={course} />

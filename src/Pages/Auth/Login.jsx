@@ -9,7 +9,7 @@ const Login = () => {
 
   const {googleSignIn, loginUser,}=use(AuthContext)
   const location=useLocation()
-  //console.log(location)
+   //console.log(location)
   const navigate=useNavigate()
   const [showpassword,setShowPassword]=useState(false)
   const emailRef=useRef()
@@ -24,6 +24,7 @@ const Login = () => {
 const handleGoogleSignIn=()=>{
   googleSignIn()
   .then(result=>{
+    console.log(result)
     toast("Successfully Login")
      navigate(`${location.state? location.state: "/"}`)
   })

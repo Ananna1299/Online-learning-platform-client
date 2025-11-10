@@ -25,7 +25,7 @@ const CourseCard = ({course}) => {
         <div className="card-actions justify-between items-center mt-4">
           <div className="flex gap-4 text-sm text-base-content/60">
           </div>
-          <Link to="" className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full">View Details</Link>
+          <Link to={`/course-details/${_id}`} className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full">View Details</Link>
         </div>
       </div>
     </div>

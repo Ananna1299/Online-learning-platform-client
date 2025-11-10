@@ -5,6 +5,9 @@ import AllCourses from "../Components/AllCourses";
 import Dashboard from "../Layouts/Dashboard";
 import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Register";
+import PrivateRoutes from "./PrivateRoutes";
+import CourseDetailsLayout from "../Layouts/CourseDetailsLayout";
+
 
 
 
@@ -37,6 +40,7 @@ export const router=createBrowserRouter(
             },
             
             
+            
 
         ]
         },
@@ -45,5 +49,12 @@ export const router=createBrowserRouter(
         element:<Dashboard></Dashboard>
       
     },
+    {
+        path:"course-details/:id",
+        element:<PrivateRoutes>
+            <CourseDetailsLayout></CourseDetailsLayout>
+           
+        </PrivateRoutes>
+    }
     ]
 )
