@@ -44,7 +44,7 @@ const Navbar = () => {
     </ul>
     </div>
 
-    <Link className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full">Login</Link>
+    <Link to="/login" className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full">Login</Link>
   </div>
 </div> 
     

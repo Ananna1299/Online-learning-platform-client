@@ -3,6 +3,8 @@ import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../Pages/Home";
 import AllCourses from "../Components/AllCourses";
 import Dashboard from "../Layouts/Dashboard";
+import Login from "../Pages/Auth/Login";
+import Register from "../Pages/Auth/Register";
 
 
 
@@ -24,7 +26,15 @@ export const router=createBrowserRouter(
                 path:"all-courses",
                 element:<AllCourses></AllCourses>,
                 loader: () => fetch('http://localhost:3000/courses')
-            }
+            },
+            {
+                path:"login",
+                element:<Login></Login>
+            },
+            {
+                path:"registration",
+                element:<Register></Register>
+            },
             
             
 
