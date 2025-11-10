@@ -9,6 +9,8 @@ import TopInstructors from '../Components/TopInstructors';
 
 const Home = () => {
      const data = useLoaderData()
+
+
     //console.log(data)
 
      useEffect(() => {

@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { use } from 'react';
 
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../Context/AuthContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+
+   const {user,logOut}=use(AuthContext)
+
+  const handleLogout=()=>{
+    logOut()
+    .then(()=>{
+      toast("successfully logout")
+    })
+    .catch()
+  }
+  
     return (
         
 <div className="navbar px-8 bg-base-200 shadow-sm">
@@ -43,8 +56,14 @@ const Navbar = () => {
       <li><NavLink  to="/dashboard"  className="text-blue-900 font-semibold">Dashboard</NavLink></li>
     </ul>
     </div>
-
+    {
+      user? 
+      <button onClick={handleLogout} className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full">
+        Logout</button>
+    :
     <Link to="/login" className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full">Login</Link>
+    }
+    
   </div>
 </div> 
     
