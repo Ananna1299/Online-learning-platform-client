@@ -2,6 +2,7 @@ import React, { use, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router';
 import { AuthContext } from '../Context/AuthContext';
 import Footer from '../Components/Footer';
+import { toast } from 'react-toastify';
 
 const CourseDetailsLayout = () => {
      //const navigate = useNavigate();
@@ -28,10 +29,41 @@ const CourseDetailsLayout = () => {
   }, [user, id]);
 
 
+
+
+  const handleEnroll=()=>{
+    const enrollData = {
+        title: course.title,
+        image: course.image,
+        price: parseFloat(course.price),
+        duration:course.duration,
+        category: course.category,
+        description: course.description,
+        added_by:course.added_by,
+        enrolled_by:user.email
+    }
+    //console.log(enrollData)
+    fetch("http://localhost:3000/enroll", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(enrollData),
+    })
+      .then((res) => res.json())
+      .then(data=>{
+        console.log(data)
+        toast.success("Successfully enrolled!");
+      })
+  }
+
+
     if (loading) {
     return <span className="loading loading-dots loading-xl"></span>;
   }
-  console.log(course)
+  //console.log(course)
+
+
 
     return (
         <div className='flex flex-col min-h-screen'>
@@ -69,9 +101,9 @@ const CourseDetailsLayout = () => {
       
         Back to Home
       </Link>
-      <Link className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full
+      <Link onClick={handleEnroll} className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full
       "
-      to="/">
+     >
       
         Enroll Now
       </Link>
