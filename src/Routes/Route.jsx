@@ -7,6 +7,9 @@ import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Register";
 import PrivateRoutes from "./PrivateRoutes";
 import CourseDetailsLayout from "../Layouts/CourseDetailsLayout";
+import AddCourse from "../Components/AddCourse";
+import MyCourses from "../Components/MyCourses";
+import MyEnroll from "../Components/MyEnroll";
 
 
 
@@ -48,7 +51,30 @@ export const router=createBrowserRouter(
         path:"dashboard",
         element:<PrivateRoutes>
             <Dashboard></Dashboard>
-        </PrivateRoutes>
+        </PrivateRoutes>,
+        children:[
+            {
+                path:"/dashboard/add-course",
+                element:<AddCourse></AddCourse>,
+                
+
+            },
+            {
+                path:"/dashboard/my-added",
+                element:<MyCourses></MyCourses>,
+                
+
+            },
+            {
+                path:"/dashboard/my-enroll",
+                element:<MyEnroll></MyEnroll>,
+                
+
+            }
+            
+
+        ]
+
         
       
     },
