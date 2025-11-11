@@ -1,6 +1,8 @@
 import React, { use } from 'react';
 import { AuthContext } from '../Context/AuthContext';
 
+import Swal from 'sweetalert2';
+
 const AddCourse = () => {
     const {user}=use(AuthContext)
 
@@ -17,7 +19,31 @@ const AddCourse = () => {
         added_by:user.email
 
     }
-    console.log(formData)
+
+     fetch('http://localhost:3000/courses', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Your course has been added.",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    
+                }
+            })
+
+  
+
     
     }
 
