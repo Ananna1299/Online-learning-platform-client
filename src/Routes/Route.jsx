@@ -11,6 +11,7 @@ import AddCourse from "../Components/AddCourse";
 import MyCourses from "../Components/MyCourses";
 import MyEnroll from "../Components/MyEnroll";
 import UpdateCourse from "../Components/UpdateCourse";
+import ErrorPage from "../Pages/ErrorPage";
 
 
 
@@ -22,6 +23,7 @@ export const router=createBrowserRouter(
         {
         path:"/",
         element:<HomeLayout></HomeLayout>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 index:true,
@@ -53,6 +55,7 @@ export const router=createBrowserRouter(
         element:<PrivateRoutes>
             <Dashboard></Dashboard>
         </PrivateRoutes>,
+         errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:"/dashboard/add-course",
@@ -91,7 +94,8 @@ export const router=createBrowserRouter(
         element:<PrivateRoutes>
             <CourseDetailsLayout></CourseDetailsLayout>
            
-        </PrivateRoutes>
+        </PrivateRoutes>,
+         errorElement:<ErrorPage></ErrorPage>
     }
     ]
 )

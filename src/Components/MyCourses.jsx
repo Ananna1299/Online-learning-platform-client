@@ -73,6 +73,7 @@ const MyCourses = () => {
 
     return (
         <div className='w-10/12 mx-auto'>
+            <title>My-Added-Courses</title>
             <div className='grid grid-cols-1 md:grid-cols-3  gap-10 pb-10 my-20 '>
         
          {courses.map(course => <div key={course._id} className="card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">

@@ -52,6 +52,7 @@ const AddCourse = () => {
 
     return (
       <div className='my-20 mx-5'>
+         <title>Add-Course</title>
           <div className="card border border-gray-200 bg-base-100 w-full max-w-lg mx-auto shadow-2xl rounded-2xl">
       <div className="card-body p-6 relative">
         <h2 className="font-semibold text-blue-900 text-center mb-6 text-xl">New Course</h2>

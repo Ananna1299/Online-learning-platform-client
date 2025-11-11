@@ -35,6 +35,7 @@ const AllCourses = () => {
     return (
         
          <div className='w-10/12 mx-auto '>
+          <title>eLearning-All-courses</title>
             
     <div>
      <div className="text-xl mt-6 mb-3 font-semibold text-blue-900"> _All Courses_</div>

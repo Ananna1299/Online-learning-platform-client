@@ -70,6 +70,7 @@ const CourseDetailsLayout = () => {
 
     return (
         <div className='flex flex-col min-h-screen'>
+            <title>{course.title}</title>
         
         <div className=' flex-1'>
              <div className='w-11/12 mx-auto my-20'>

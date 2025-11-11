@@ -21,6 +21,7 @@ const Home = () => {
       }, []);
     return (
         <div className="w-10/12 mx-auto">
+          <title>eLearning-Home</title>
           {/* Banner Section */}
           <section className="w-full my-6">
             <div className="w-full">
