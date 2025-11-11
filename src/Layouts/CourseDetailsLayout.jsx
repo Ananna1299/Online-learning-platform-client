@@ -52,8 +52,11 @@ const CourseDetailsLayout = () => {
     })
       .then((res) => res.json())
       .then(data=>{
-        console.log(data)
+        if (data.success) {
         toast.success("Successfully enrolled!");
+      } else {
+        toast.error(data.message || "Already enrolled!");
+      }
       })
   }
 
