@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useEffect, useState } from 'react';
 
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Context/AuthContext';
@@ -7,7 +7,18 @@ import { toast } from 'react-toastify';
 const Navbar = () => {
 
    const {user,logOut}=use(AuthContext)
-   //console.log(user)
+   const [theme, setTheme] = useState(localStorage.getItem('theme') || "light")
+   
+     useEffect(() => {
+    const html = document.querySelector('html')
+     html.setAttribute("data-theme", theme)
+     localStorage.setItem("theme", theme)
+  }, [theme])
+
+
+  const handleTheme = (checked) => {
+    setTheme(checked ? "dark": "light")
+  }
 
   const handleLogout=()=>{
     logOut()
@@ -37,6 +48,11 @@ const Navbar = () => {
         <li>
             <NavLink to="/dashboard" className="text-blue-900 font-semibold">Dashboard</NavLink>
         </li>
+        <input
+           onChange={(e)=> handleTheme(e.target.checked)}
+           type="checkbox"
+           defaultChecked={localStorage.getItem('theme') === "dark"}
+           className="toggle"/>
       </ul>
     </div>
     <div className='flex items-center'>
@@ -55,6 +71,7 @@ const Navbar = () => {
         <NavLink to="/all-courses" className="text-blue-900 font-semibold">All Courses</NavLink>
       </li>
       <li><NavLink  to="/dashboard"  className="text-blue-900 font-semibold">Dashboard</NavLink></li>
+      
     </ul>
     </div>
     {
@@ -70,11 +87,16 @@ const Navbar = () => {
     }
     {
       user? 
-      <button onClick={handleLogout} className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full">
+      <button onClick={handleLogout} className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 mr-1 text-white rounded-full">
         Logout</button>
     :
-    <Link to="/login" className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full">Login</Link>
+    <Link to="/login" className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white mr-1 rounded-full">Login</Link>
     }
+    <input
+           onChange={(e)=> handleTheme(e.target.checked)}
+           type="checkbox"
+           defaultChecked={localStorage.getItem('theme') === "dark"}
+           className="toggle"/>
     
   </div>
 </div> 
