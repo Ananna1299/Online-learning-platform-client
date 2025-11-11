@@ -105,7 +105,7 @@ const MyCourses = () => {
               </Link>
 
               <Link
-                to={`/course-update/${course._id}`}
+                to={`/dashboard/update/${course._id}`}
                 className="btn bg-gradient-to-r from-green-700 to-green-400 text-white rounded-full"
               >
                 Update

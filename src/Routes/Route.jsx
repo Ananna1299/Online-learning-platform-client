@@ -10,6 +10,7 @@ import CourseDetailsLayout from "../Layouts/CourseDetailsLayout";
 import AddCourse from "../Components/AddCourse";
 import MyCourses from "../Components/MyCourses";
 import MyEnroll from "../Components/MyEnroll";
+import UpdateCourse from "../Components/UpdateCourse";
 
 
 
@@ -70,7 +71,14 @@ export const router=createBrowserRouter(
                 element:<MyEnroll></MyEnroll>,
                 
 
-            }
+            },
+            {
+                path:"/dashboard/update/:id",
+                element:<UpdateCourse></UpdateCourse>
+                
+
+            },
+
             
 
         ]
