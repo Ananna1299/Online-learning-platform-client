@@ -6,6 +6,7 @@ import { useLoaderData } from 'react-router';
 import CourseCard from '../Components/CourseCard';
 import HowItWorks from '../Components/HowItWorks';
 import TopInstructors from '../Components/TopInstructors';
+import { motion } from 'framer-motion';
 
 const Home = () => {
      const data = useLoaderData()
@@ -40,7 +41,7 @@ const Home = () => {
                     className="w-full max-w-md lg:max-w-full h-[300px] lg:h-[80%] object-cover rounded-lg shadow-2xl"
                   />
 
-                  {/* Absolute text overlay */}
+                  
                   <div className="absolute right-[-10px] bottom-[-25px] bg-white/70 backdrop-blur-sm p-4 rounded-lg shadow-lg max-w-xs">
                     
                     <p className="text-blue-900 text-sm mt-2 font-semibold p-2">
@@ -51,9 +52,13 @@ const Home = () => {
 
                 {/* Right-side content */}
                 <div className="w-full lg:w-1/3 mt-6 lg:mt-0 text-center lg:text-left">
-                  <h1 className="text-2xl md:text-3xl font-bold text-blue-900 italic">
+                  <motion.h1 
+                  initial={{opacity: 0, y:500}}
+                  animate={{opacity:1, y:0}}
+                  transition={{duration:2}}
+                   className="text-2xl md:text-3xl font-bold text-blue-900 italic">
                   eLearning......
-                  </h1>
+                  </motion.h1>
                   <p className="py-6 text-gray-600 max-w-lg mx-auto lg:mx-0">
                   Learn anytime, anywhere with our online learning platform designed to empower students through expert-led courses, interactive lessons, and real-world projects.
                   </p>
