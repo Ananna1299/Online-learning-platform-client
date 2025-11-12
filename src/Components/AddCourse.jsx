@@ -149,7 +149,7 @@ const AddCourse = () => {
             type="submit"
             className="btn w-full text-white mt-6 rounded-full bg-linear-to-r bg-linear-to-r from-blue-900 to-blue-400"
           >
-            Add Model
+            Add Course
           </button>
         </form>
       </div>
