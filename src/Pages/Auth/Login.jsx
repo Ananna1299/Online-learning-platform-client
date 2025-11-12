@@ -24,7 +24,7 @@ const Login = () => {
 const handleGoogleSignIn=()=>{
   googleSignIn()
   .then(result=>{
-    console.log(result)
+   // console.log(result)
     toast("Successfully Login")
      navigate(`${location.state? location.state: "/"}`)
   })

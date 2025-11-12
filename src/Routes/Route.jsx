@@ -13,89 +13,72 @@ import MyEnroll from "../Components/MyEnroll";
 import UpdateCourse from "../Components/UpdateCourse";
 import ErrorPage from "../Pages/ErrorPage";
 
-
-
-
-
-
-export const router=createBrowserRouter(
-    [
-        {
-        path:"/",
-        element:<HomeLayout></HomeLayout>,
-        errorElement:<ErrorPage></ErrorPage>,
-        children:[
-            {
-                index:true,
-                element:<Home></Home>,
-                loader: () => fetch('http://localhost:3000/feature-courses')
-
-            },
-            {
-                path:"all-courses",
-                element:<AllCourses></AllCourses>,
-                loader: () => fetch('http://localhost:3000/courses')
-            },
-            {
-                path:"login",
-                element:<Login></Login>
-            },
-            {
-                path:"registration",
-                element:<Register></Register>
-            },
-            
-            
-            
-
-        ]
-        },
-        {
-        path:"dashboard",
-        element:<PrivateRoutes>
-            <Dashboard></Dashboard>
-        </PrivateRoutes>,
-         errorElement:<ErrorPage></ErrorPage>,
-        children:[
-            {
-                path:"/dashboard/add-course",
-                element:<AddCourse></AddCourse>,
-                
-
-            },
-            {
-                path:"/dashboard/my-added",
-                element:<MyCourses></MyCourses>,
-                
-
-            },
-            {
-                path:"/dashboard/my-enroll",
-                element:<MyEnroll></MyEnroll>,
-                
-
-            },
-            {
-                path:"/dashboard/update/:id",
-                element:<UpdateCourse></UpdateCourse>
-                
-
-            },
-
-            
-
-        ]
-
-        
-      
-    },
-    {
-        path:"course-details/:id",
-        element:<PrivateRoutes>
-            <CourseDetailsLayout></CourseDetailsLayout>
-           
-        </PrivateRoutes>,
-         errorElement:<ErrorPage></ErrorPage>
-    }
-    ]
-)
+export const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <HomeLayout></HomeLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        index: true,
+        element: <Home></Home>,
+        loader: () =>
+          fetch(
+            "https://online-learning-platform-server-seven.vercel.app/feature-courses"
+          ),
+      },
+      {
+        path: "all-courses",
+        element: <AllCourses></AllCourses>,
+        loader: () =>
+          fetch(
+            "https://online-learning-platform-server-seven.vercel.app/courses"
+          ),
+      },
+      {
+        path: "login",
+        element: <Login></Login>,
+      },
+      {
+        path: "registration",
+        element: <Register></Register>,
+      },
+    ],
+  },
+  {
+    path: "dashboard",
+    element: (
+      <PrivateRoutes>
+        <Dashboard></Dashboard>
+      </PrivateRoutes>
+    ),
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/dashboard/add-course",
+        element: <AddCourse></AddCourse>,
+      },
+      {
+        path: "/dashboard/my-added",
+        element: <MyCourses></MyCourses>,
+      },
+      {
+        path: "/dashboard/my-enroll",
+        element: <MyEnroll></MyEnroll>,
+      },
+      {
+        path: "/dashboard/update/:id",
+        element: <UpdateCourse></UpdateCourse>,
+      },
+    ],
+  },
+  {
+    path: "course-details/:id",
+    element: (
+      <PrivateRoutes>
+        <CourseDetailsLayout></CourseDetailsLayout>
+      </PrivateRoutes>
+    ),
+    errorElement: <ErrorPage></ErrorPage>,
+  },
+]);
