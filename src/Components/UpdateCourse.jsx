@@ -176,9 +176,9 @@ const UpdateCourse = () => {
             {/* Submit Button */}
             <button
               type="submit"
-              className="btn w-full text-white mt-6 rounded-full bg-linear-to-r bg-linear-to-r from-blue-900 to-blue-400"
+              className="btn w-full text-white mt-6 rounded-xl bg-linear-to-r bg-linear-to-r from-blue-900 to-blue-400"
             >
-              Add Model
+              Update Information
             </button>
           </form>
         </div>
