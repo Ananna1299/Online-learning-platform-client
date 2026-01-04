@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from 'react-router';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthContext';
+import img from "../../assets/n-removebg-preview.png"
 
 const Login = () => {
 
@@ -14,11 +15,24 @@ const Login = () => {
   const [showpassword,setShowPassword]=useState(false)
   const emailRef=useRef()
 
+  const [email, setEmail] = useState("");
+const [password, setPassword] = useState("");
+
 
    const handleShowpass=(e)=>{
      e.preventDefault()
     setShowPassword(!showpassword)
    }
+
+
+   const handleCredentialLogin = () => {
+  setEmail("roshi@gmail.com");
+  setPassword("Abc123#");
+};
+
+
+
+
 
 //for google login
 const handleGoogleSignIn=()=>{
@@ -59,9 +73,12 @@ const handleGoogleSignIn=()=>{
 
 
   return (
-   <div className="flex justify-center min-h-screen items-center my-3">
+   <div className="flex justify-center  items-center my-16">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-        <h2 className="font-semibold text-2xl text-center text-blue-900">
+        <figure className="h-20 w-20 mx-auto">
+                  <img src={img} alt="" />
+                </figure>
+        <h2 className="font-semibold text-2xl text-center text-blue-900 dark:text-blue-400">
           Login your account
         </h2>
         <form onSubmit={handleLogin} className="card-body">
@@ -73,8 +90,11 @@ const handleGoogleSignIn=()=>{
               type="email"
               className="input"
               placeholder="Email"
+              value={email} 
+               onChange={(e) => setEmail(e.target.value)}
               ref={emailRef}
               required
+
             />
             {/* passowrd  */}
             <label className="label">Password</label>
@@ -82,8 +102,10 @@ const handleGoogleSignIn=()=>{
                           <input
                           name="password"
                           type={showpassword?"text": "password"} 
+                          onChange={(e) => setPassword(e.target.value)}
                           className="input"
                           placeholder="Password"
+                           value={password}     
                           required
                         />
                         <button onClick={handleShowpass} className="btn btn-xs absolute top-1.5 right-5">{showpassword?<FaEye />:<FaEyeSlash />}</button>
@@ -97,12 +119,26 @@ const handleGoogleSignIn=()=>{
             
 
             <button type="submit" className="btn bg-linear-to-r from-blue-900 to-blue-400 
-            text-white mt-4 rounded-full">
+            text-white mt-4 rounded-xl">
               Login
             </button>
+
+
+
+            <button
+          type="button"
+          onClick={handleCredentialLogin}
+          className="btn bg-linear-to-r from-blue-900 to-blue-400 
+            text-white mt-4 rounded-xl"
+        >
+          Use Demo Credentials
+        </button>
+
+
+
             <p className="font-semibold text-center pt-5">
               Dont’t Have An Account ?{" "}
-              <Link className="text-blue-900" to="/registration">
+              <Link className="text-blue-900 dark:text-blue-400" to="/registration">
                 Register
               </Link>
             </p>

@@ -45,13 +45,13 @@ const AddCourse = () => {
       <title>Add-Course</title>
       <div className="card border border-gray-200 bg-base-100 w-full max-w-lg mx-auto shadow-2xl rounded-2xl">
         <div className="card-body p-6 relative">
-          <h2 className="font-semibold text-blue-900 text-center mb-6 text-xl">
+          <h2 className="font-semibold text-blue-900  dark:text-blue-400   text-center mb-6 text-xl">
             New Course
           </h2>
           <form onSubmit={handleform} className="space-y-4">
             {/* title Field */}
             <div>
-              <label className="label font-medium text-blue-900 mb-1">
+              <label className="label font-medium text-blue-900 mb-1 dark:text-blue-400">
                 Title
               </label>
               <input
@@ -65,7 +65,7 @@ const AddCourse = () => {
 
             {/* Category */}
             <div>
-              <label className="label font-medium text-blue-900 mb-1">
+              <label className="label font-medium text-blue-900 mb-1 dark:text-blue-400">
                 Category
               </label>
               <input
@@ -78,7 +78,7 @@ const AddCourse = () => {
             </div>
             {/* price */}
             <div>
-              <label className="label font-medium text-blue-900 mb-1">
+              <label className="label font-medium text-blue-900 mb-1 dark:text-blue-400">
                 Price
               </label>
               <input
@@ -92,7 +92,7 @@ const AddCourse = () => {
             </div>
             {/* Duration */}
             <div>
-              <label className="label font-medium text-blue-900 mb-1">
+              <label className="label font-medium text-blue-900 mb-1 dark:text-blue-400">
                 Duration
               </label>
               <input
@@ -106,7 +106,7 @@ const AddCourse = () => {
 
             {/* Description */}
             <div>
-              <label className="label font-medium text-blue-900 mb-1 ">
+              <label className="label font-medium text-blue-900 mb-1 dark:text-blue-400">
                 Description
               </label>
               <textarea
@@ -120,7 +120,7 @@ const AddCourse = () => {
 
             {/* Image*/}
             <div>
-              <label className="label font-medium text-blue-900 mb-1 ">
+              <label className="label font-medium text-blue-900 mb-1 dark:text-blue-400">
                 Image URL
               </label>
               <input
@@ -134,7 +134,7 @@ const AddCourse = () => {
 
             {/* featured */}
             <div className="flex items-center gap-2">
-              <label className="label font-medium text-blue-900 mb-1">
+              <label className="label font-medium text-blue-900 mb-1 dark:text-blue-400">
                 Is Featured
               </label>
               <input

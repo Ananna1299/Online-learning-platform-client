@@ -5,12 +5,12 @@ import { FaUserAlt, FaDownload } from "react-icons/fa";
 
 const HowItWorks = () => {
     return (
-        <div >
+        <div className='mt-16'>
           
-             <section className="bg-[#1a1b5a] text-white py-20 mb-10 rounded-xl  ">
+             <section className="bg-[#1a1b5a] text-white py-20 rounded-xl  ">
       <div className="w-11/12 md:w-10/12 mx-auto text-center">
         
-        <h2 className="text-[#fbbf24] text-4xl font-semibold mb-16 tracking-wider">
+        <h2 className="text-white text-4xl font-semibold mb-16 tracking-wider">
           HOW IT WORKS
         </h2>
 

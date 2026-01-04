@@ -43,6 +43,8 @@ const Footer = () => {
       Providing reliable tech since 2025
     </p>
      <p>Copyright © {new Date().getFullYear()} - All right reserved by  eLearning Platform</p>
+     <p>support@elearning.com <br />
+            info@elearning.com</p>
   </aside>
   <nav>
     <h6 className=" font-bold text-white">Social</h6>

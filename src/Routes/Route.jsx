@@ -12,6 +12,11 @@ import MyCourses from "../Components/MyCourses";
 import MyEnroll from "../Components/MyEnroll";
 import UpdateCourse from "../Components/UpdateCourse";
 import ErrorPage from "../Pages/ErrorPage";
+import AboutUs from "../Components/AboutUs";
+import MyProfile from "../Components/MyProfile";
+import UpdateProfile from "../Components/UpdateProfile";
+import DasboardNav from "../Components/DasboardNav";
+import Blogs from "../Components/Blogs";
 
 export const router = createBrowserRouter([
   {
@@ -30,10 +35,7 @@ export const router = createBrowserRouter([
       {
         path: "all-courses",
         element: <AllCourses></AllCourses>,
-        loader: () =>
-          fetch(
-            "https://online-learning-platform-server-seven.vercel.app/courses"
-          ),
+        
       },
       {
         path: "login",
@@ -42,6 +44,10 @@ export const router = createBrowserRouter([
       {
         path: "registration",
         element: <Register></Register>,
+      },
+      {
+        path: "about",
+        element: <AboutUs></AboutUs>,
       },
     ],
   },
@@ -67,18 +73,40 @@ export const router = createBrowserRouter([
         element: <MyEnroll></MyEnroll>,
       },
       {
+        path: "/dashboard/profile",
+        element: <MyProfile></MyProfile>,
+      },
+      {
         path: "/dashboard/update/:id",
         element: <UpdateCourse></UpdateCourse>,
+      },
+      {
+        path: "/dashboard/updateprofile/:id",
+        element: <UpdateProfile></UpdateProfile>,
+      },
+
+      {
+        path: "/dashboard/homepage",
+        element: <DasboardNav></DasboardNav>,
       },
     ],
   },
   {
     path: "course-details/:id",
     element: (
-      <PrivateRoutes>
+      
         <CourseDetailsLayout></CourseDetailsLayout>
-      </PrivateRoutes>
+      
     ),
+    errorElement: <ErrorPage></ErrorPage>,
+  },
+   {
+    path: "blogs",
+    element:<PrivateRoutes>
+      <Blogs></Blogs>
+      
+
+    </PrivateRoutes> ,
     errorElement: <ErrorPage></ErrorPage>,
   },
 ]);

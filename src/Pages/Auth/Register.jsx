@@ -4,6 +4,7 @@ import { Link, Navigate, useNavigate } from "react-router";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { toast } from "react-toastify";
 import { AuthContext } from "../../Context/AuthContext";
+import img from "../../assets/n-removebg-preview.png"
 
 const Register = () => {
 
@@ -21,6 +22,33 @@ const Register = () => {
   const handleGoogleSignIn=()=>{
     googleSignIn()
     .then(result=>{
+      console.log(result)
+      console.log(result.user.displayName)
+
+
+      const userData={
+                displayName:result.user.displayName,
+                photoURL:result.user.photoURL,
+                email:result.user.email
+            }
+
+      fetch("https://online-learning-platform-server-seven.vercel.app/users", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userData),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  if (data.insertedId) {
+                    toast.success("Successfully Registered ");
+                  } else {
+                    toast.error( "Already Registered!");
+                  }
+                });
+
+
       toast("successfully login")
       navigate("/")
     })
@@ -51,8 +79,50 @@ const Register = () => {
     createUser(email,password)
     .then(result=>{
       const userInfo=result.user;
-     // console.log(userInfo)
-      updateUser({displayName:name,photoURL:photo})
+     //console.log(userInfo)
+
+
+      const userData={
+                displayName:name,
+                photoURL:photo,
+                email:email
+            }
+          console.log(userData)
+
+
+          fetch("https://online-learning-platform-server-seven.vercel.app/users", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userData),
+              })
+                .then((res) => res.json())
+                .then((data) => {
+                  if (data.insertedId) {
+                    toast.success("Successfully Registered ");
+                  } else {
+                    toast.error( "Already Registered!");
+                  }
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+      updateUser(
+        {
+          displayName:name,
+          photoURL:photo
+        }
+        )
       .then(()=>{
         setUser({...userInfo,displayName:name,photoURL:photo})
          e.target.reset()
@@ -73,9 +143,12 @@ const Register = () => {
   }
     
   return (
-    <div className="flex justify-center min-h-screen items-center my-3">
+    <div className="flex justify-center items-center my-16">
       <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-        <h2 className="font-semibold text-2xl text-center text-purple-800">
+        <figure className="h-20 w-20 mx-auto">
+          <img src={img} alt="" />
+        </figure>
+        <h2 className="font-semibold text-2xl text-center text-blue-900 dark:text-blue-400">
           Register your account
         </h2>
         <form onSubmit={handleRegister} className="card-body">
@@ -126,12 +199,12 @@ const Register = () => {
             </div>
 
             <button type="submit" className="btn bg-linear-to-r from-blue-900 to-blue-400 
-            text-white rounded-full mt-4">
+            text-white rounded-xl mt-4">
               Register
             </button>
             <p className="font-semibold text-center pt-5">
               Already Have An Account ?{" "}
-              <Link className="text-blue-900" to="/login">
+              <Link className="text-blue-900 dark:text-blue-400" to="/login">
                 Login
               </Link>
             </p>

@@ -3,6 +3,7 @@ import { Link, useParams } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import Footer from "../Components/Footer";
 import { toast } from "react-toastify";
+import Loader from "../Components/Loader";
 
 const CourseDetailsLayout = () => {
   //const navigate = useNavigate();
@@ -14,11 +15,7 @@ const CourseDetailsLayout = () => {
   useEffect(() => {
     fetch(
       `https://online-learning-platform-server-seven.vercel.app/courses/${id}`,
-      {
-        headers: {
-          authorization: `Bearer ${user.accessToken}`,
-        },
-      }
+     
     )
       .then((res) => res.json())
       .then((data) => {
@@ -27,9 +24,13 @@ const CourseDetailsLayout = () => {
         //console.log(data);
         setLoading(false);
       });
-  }, [user, id]);
+  }, [ id]);
 
   const handleEnroll = () => {
+     if (!user) {
+    toast.error("Please login for enroll the course");
+    return;
+  }
     const enrollData = {
       title: course.title,
       image: course.image,
@@ -59,7 +60,7 @@ const CourseDetailsLayout = () => {
   };
 
   if (loading) {
-    return <span className="loading loading-dots loading-xl"></span>;
+    return <Loader></Loader>;
   }
   //console.log(course)
 
@@ -79,12 +80,12 @@ const CourseDetailsLayout = () => {
             </div>
 
             <div>
-              <h2 className="text-2xl w-8/12 mx-auto font-bold text-blue-900">
+              <h2 className="text-2xl w-8/12 mx-auto font-bold text-blue-900 dark:text-blue-400">
                 {course.title}
               </h2>
               <p className="w-8/12 mx-auto text-justify mt-3">
                 <span
-                  className="text-blue-900 
+                  className="text-blue-900 dark:text-blue-400
         font-semibold"
                 >
                   Category:{" "}
@@ -94,7 +95,7 @@ const CourseDetailsLayout = () => {
 
               <p className="w-8/12 mx-auto text-justify mt-3">
                 <span
-                  className="text-blue-900 
+                  className="text-blue-900 dark:text-blue-400
         font-semibold"
                 >
                   Price:{" "}
@@ -104,12 +105,22 @@ const CourseDetailsLayout = () => {
 
               <p className="w-8/12 mx-auto text-justify mt-3">
                 <span
-                  className="text-blue-900 
+                  className="text-blue-900 dark:text-blue-400
         font-semibold"
                 >
                   Duration:{" "}
                 </span>
                 {course.duration}
+              </p>
+
+                <p className="w-8/12 mx-auto text-justify mt-3">
+                <span
+                  className="text-blue-900 dark:text-blue-400
+        font-semibold"
+                >
+                  Launched by:{" "}
+                </span>
+                {course.added_by}
               </p>
 
               <p className="w-8/12 mx-auto text-justify my-3">
@@ -118,7 +129,8 @@ const CourseDetailsLayout = () => {
 
               <div className="w-8/12 mx-auto space-x-3">
                 <Link
-                  className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full
+                  className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white
+                   rounded-xl
       "
                   to="/"
                 >
@@ -126,7 +138,8 @@ const CourseDetailsLayout = () => {
                 </Link>
                 <Link
                   onClick={handleEnroll}
-                  className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white rounded-full
+                  className="btn  bg-linear-to-r from-blue-900 to-blue-400 py-3 text-white 
+                  rounded-xl
       "
                 >
                   Enroll Now

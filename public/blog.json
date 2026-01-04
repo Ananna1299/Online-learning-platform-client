@@ -1,0 +1,52 @@
+[
+  {
+    "title": "5 Tips to Improve Your Coding Skills",
+    "content": "Practicing regularly, contributing to open source, reading code, and taking online challenges can dramatically improve your coding skills.",
+    "writer": "Alice Johnson"
+  },
+  {
+    "title": "Time Management for Developers",
+    "content": "Learn how to prioritize tasks, avoid distractions, and use tools like Trello or Notion to maximize productivity and meet deadlines.",
+    "writer": "Michael Smith"
+  },
+  {
+    "title": "Mastering Version Control with Git",
+    "content": "Understand Git basics, branching, pull requests, and collaboration workflows to become efficient in team projects.",
+    "writer": "Sarah Lee"
+  },
+  {
+    "title": "Building a Personal Portfolio Website",
+    "content": "Showcase your skills and projects by creating a personal portfolio using HTML, CSS, and JavaScript frameworks like React.",
+    "writer": "David Brown"
+  },
+  {
+    "title": "Effective Debugging Techniques",
+    "content": "Learn how to debug efficiently using console logs, breakpoints, and debugging tools to save time and improve code quality.",
+    "writer": "Emma Davis"
+  },
+  {
+    "title": "Learning Data Structures and Algorithms",
+    "content": "Mastering DSA is essential for problem-solving and technical interviews. Start with arrays, strings, trees, and sorting algorithms.",
+    "writer": "James Wilson"
+  },
+  {
+    "title": "How to Learn a New Programming Language Fast",
+    "content": "Focus on hands-on practice, building small projects, reading official documentation, and understanding the language paradigm.",
+    "writer": "Olivia Martinez"
+  },
+  {
+    "title": "Improving Communication Skills for Developers",
+    "content": "Strong communication helps you explain your ideas clearly, collaborate with teams, and improve career growth opportunities.",
+    "writer": "Daniel Garcia"
+  },
+  {
+    "title": "Top 10 Productivity Tools for Programmers",
+    "content": "Tools like VS Code, GitHub, Notion, Slack, and Postman can enhance your workflow and efficiency in development projects.",
+    "writer": "Sophia Anderson"
+  },
+  {
+    "title": "Staying Updated in the Tech Industry",
+    "content": "Follow tech blogs, subscribe to newsletters, watch tutorials, and participate in communities to stay ahead in your career.",
+    "writer": "Liam Thompson"
+  }
+]
